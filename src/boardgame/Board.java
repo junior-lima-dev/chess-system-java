@@ -4,12 +4,12 @@ public class Board {
 
 	private int rows;
 	private int columns;
-	private Piece[][] piaces;
+	private Piece[][] pieces;
 	
 	public Board(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
-		this.piaces = new Piece[rows][columns];
+		this.pieces = new Piece[rows][columns];
 	}
 
 	// Getters and Setters
@@ -30,11 +30,19 @@ public class Board {
 	}
 	
 	// Methods
+	
+	// Métodos de retorno da posição das peças
 	public Piece piece(int row, int column) {
-		return this.piaces[row][column];
+		return this.pieces[row][column];
 	}
 	
 	public Piece piece(Position position) {
-		return this.piaces[position.getRow()][position.getColumn()];
+		return this.pieces[position.getRow()][position.getColumn()];
+	}
+	
+	// Método para colocar a peça no tabuleiro
+	public void placePiece(Piece piece, Position position) {
+		pieces[position.getRow()][position.getColumn()] = piece;
+		piece.position = position; 
 	}
 }
