@@ -1,8 +1,6 @@
 package chess;
 
 import boardgame.Board;
-import boardgame.Piece;
-import boardgame.Position;
 import chess.pieces.Rook;
 
 public class ChessMatch {
@@ -27,9 +25,14 @@ public class ChessMatch {
 		return mat;
 	}
 	
+	// Inserindo uma nova peça no tabuleiro. Recebe posições de xadrez (a1, h8) e converte para posições de matriz.
+	private void placeNewPiece(char column, int row, ChessPiece piece) {
+		board.placePiece(piece, new ChessPosition(column, row).toPosition());
+	}
+	
 	// Inserir cada peça no tabuleiro em sua respectiva posição
 	private void initialSetup() {
-		board.placePiece(new Rook(this.board, Color.WHITE), new Position(2, 1));
+		placeNewPiece('b', 6, new Rook(this.board, Color.WHITE));
 	}
 	
 }
