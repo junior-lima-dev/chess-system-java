@@ -12,6 +12,7 @@ public class Board {
 		this.piaces = new Piece[rows][columns];
 	}
 
+	// Getters and Setters
 	public int getRows() {
 		return rows;
 	}
@@ -28,5 +29,12 @@ public class Board {
 		this.columns = columns;
 	}
 	
+	// Methods
+	public Piece piece(int row, int column) {
+		return this.piaces[row][column];
+	}
 	
+	public Piece piece(Position position) {
+		return this.piaces[position.getRow()][position.getColumn()];
+	}
 }
